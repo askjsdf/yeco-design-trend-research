@@ -1079,21 +1079,43 @@ window.switchLanguage = switchLanguage;
     }
 
     function setupLanguageSwitcher() {
-        // 绑定语言切换事件
+        console.log('📝 报告页面: 设置语言切换监听...');
+
+        // 监听i18n系统的语言切换事件
+        if (window.i18n) {
+            window.i18n.on('languageChanged', (data) => {
+                const lang = data.to;
+                console.log('📝 报告页面: 收到语言切换事件:', lang);
+                currentLanguage = lang;
+                updatePageContent(lang);
+            });
+
+            // 使用i18n系统的当前语言初始化
+            setTimeout(() => {
+                const initialLang = window.i18n.currentLang || 'zh-CN';
+                console.log('📝 报告页面: 初始化语言为:', initialLang);
+                currentLanguage = initialLang;
+                updatePageContent(initialLang);
+            }, 200);
+        } else {
+            console.warn('⚠️ i18n系统未找到，使用默认语言');
+            // 如果i18n系统未加载，使用localStorage或默认语言
+            setTimeout(() => {
+                const savedLang = localStorage.getItem('language') || 'zh-CN';
+                console.log('📝 报告页面: 使用保存的语言:', savedLang);
+                currentLanguage = savedLang;
+                updatePageContent(savedLang);
+            }, 100);
+        }
+
+        // 保留对老式 .lang-tab 按钮的支持（如果页面上有的话）
         document.querySelectorAll('.lang-tab').forEach(tab => {
             tab.addEventListener('click', function(e) {
                 e.preventDefault();
                 const lang = this.dataset.lang;
-                console.log('切换语言到:', lang);
+                console.log('📝 报告页面: 通过tab切换语言到:', lang);
                 switchLanguage(lang);
             });
         });
-
-        // 延迟初始化语言，确保所有DOM都已加载
-        setTimeout(() => {
-            const savedLang = localStorage.getItem('language') || 'zh-CN';
-            console.log('初始化语言:', savedLang);
-            switchLanguage(savedLang);
-        }, 100);
     }
 })();
