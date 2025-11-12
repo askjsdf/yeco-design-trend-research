@@ -1,56 +1,49 @@
 {
-  "version": 2,
-  "name": "yeco",
-  "public": true,
-  "github": {
-    "silent": true
-  },
-  "builds": [
+  "rewrites": [
     {
-      "src": "**/*",
-      "use": "@vercel/static"
+      "source": "/",
+      "destination": "/pages/home/index.html"
+    },
+    {
+      "source": "/home",
+      "destination": "/pages/home/index.html"
+    },
+    {
+      "source": "/trends",
+      "destination": "/pages/trends/index.html"
+    },
+    {
+      "source": "/reports/2024-10-middleeast",
+      "destination": "/pages/reports/2024-10-middleeast/index.html"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/favicon.ico",
+      "destination": "/assets/images/favicon.ico"
     }
   ],
-  "routes": [
+  "redirects": [
     {
-      "src": "^/$",
-      "dest": "/pages/home/index.html"
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
     },
     {
-      "src": "^/home/?$",
-      "dest": "/pages/home/index.html"
+      "source": "/home.html",
+      "destination": "/home",
+      "permanent": true
     },
     {
-      "src": "^/trends/?$",
-      "dest": "/pages/trends/index.html"
-    },
-    {
-      "src": "^/reports/?$",
-      "dest": "/pages/reports/index.html"
-    },
-    {
-      "src": "^/reports/2024-10-middleeast/?$",
-      "dest": "/pages/reports/2024-10-middleeast/index.html"
-    },
-    {
-      "src": "^/reports/(.*)$",
-      "dest": "/pages/reports/$1"
-    },
-    {
-      "src": "^/pages/(.*)$",
-      "dest": "/pages/$1"
-    },
-    {
-      "src": "^/assets/(.*)$",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "^/shared/(.*)$",
-      "dest": "/shared/$1"
-    },
-    {
-      "src": "^/(.*)$",
-      "dest": "/$1"
+      "source": "/trends.html",
+      "destination": "/trends",
+      "permanent": true
     }
   ],
   "headers": [
@@ -147,37 +140,6 @@
       ]
     }
   ],
-  "redirects": [
-    {
-      "source": "/index.html",
-      "destination": "/pages/home/",
-      "permanent": true
-    },
-    {
-      "source": "/home.html",
-      "destination": "/pages/home/",
-      "permanent": true
-    },
-    {
-      "source": "/trends.html",
-      "destination": "/pages/trends/",
-      "permanent": true
-    }
-  ],
   "trailingSlash": false,
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/favicon.ico",
-      "destination": "/assets/images/favicon.ico"
-    }
-  ]
+  "cleanUrls": true
 }
