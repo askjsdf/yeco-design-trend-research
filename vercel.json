@@ -1,22 +1,4 @@
 {
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/pages/home/index.html"
-    },
-    {
-      "source": "/home",
-      "destination": "/pages/home/index.html"
-    },
-    {
-      "source": "/trends",
-      "destination": "/pages/trends/index.html"
-    },
-    {
-      "source": "/reports/2024-10-middleeast",
-      "destination": "/pages/reports/2024-10-middleeast/index.html"
-    }
-  ],
   "headers": [
     {
       "source": "/(.*)\\.js",
@@ -35,6 +17,13 @@
           "value": "text/css; charset=utf-8"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/pages/home/",
+      "permanent": false
     }
   ]
 }
