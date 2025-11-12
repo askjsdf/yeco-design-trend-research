@@ -15,18 +15,6 @@
     {
       "source": "/reports/2024-10-middleeast",
       "destination": "/pages/reports/2024-10-middleeast/index.html"
-    },
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/robots.txt",
-      "destination": "/robots.txt"
-    },
-    {
-      "source": "/favicon.ico",
-      "destination": "/assets/images/favicon.ico"
     }
   ],
   "redirects": [
@@ -44,16 +32,40 @@
       "source": "/trends.html",
       "destination": "/trends",
       "permanent": true
+    },
+    {
+      "source": "/pages/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pages/trends",
+      "destination": "/trends",
+      "permanent": true
     }
   ],
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*)\\.js",
       "headers": [
         {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
+          "key": "Content-Type",
+          "value": "text/javascript; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.css",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/css; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
         {
           "key": "X-Frame-Options",
           "value": "DENY"
@@ -65,10 +77,6 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "geolocation=(), microphone=(), camera=()"
         }
       ]
     },
@@ -91,51 +99,11 @@
       ]
     },
     {
-      "source": "/pages/(.*)\\.(jpg|jpeg|png|gif|webp|svg|ico)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/pages/(.*)\\.css",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/pages/(.*)\\.js",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
       "source": "/(.*)\\.html",
       "headers": [
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, must-revalidate"
-        }
-      ]
-    },
-    {
-      "source": "/assets/fonts/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        },
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
         }
       ]
     }
