@@ -1,0 +1,412 @@
+/* ==========================================
+   YECO 排版系统
+   统一的字体和排版规范
+   ========================================== */
+
+/* 引入Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700;900&family=Cormorant+Garamond:wght@300;400;600&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
+/* ==========================================
+   基础字体设置
+   ========================================== */
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: 1.8;
+    font-weight: 400;
+    color: var(--off-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 阿拉伯语字体 */
+[lang="ar"],
+[lang="ar-SA"] {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+}
+
+/* ==========================================
+   标题层级
+   ========================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+    color: var(--white);
+}
+
+h1 {
+    font-size: var(--text-6xl);
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: var(--text-5xl);
+    letter-spacing: -0.01em;
+}
+
+h3 {
+    font-size: var(--text-4xl);
+}
+
+h4 {
+    font-size: var(--text-3xl);
+}
+
+h5 {
+    font-size: var(--text-2xl);
+}
+
+h6 {
+    font-size: var(--text-xl);
+}
+
+/* 响应式标题 */
+@media (max-width: 768px) {
+    h1 { font-size: var(--text-4xl); }
+    h2 { font-size: var(--text-3xl); }
+    h3 { font-size: var(--text-2xl); }
+    h4 { font-size: var(--text-xl); }
+    h5 { font-size: var(--text-lg); }
+    h6 { font-size: var(--text-base); }
+}
+
+/* ==========================================
+   段落和文本
+   ========================================== */
+p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+.lead {
+    font-size: var(--text-xl);
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+.small-text {
+    font-size: var(--text-sm);
+}
+
+.large-text {
+    font-size: var(--text-lg);
+    line-height: 1.8;
+}
+
+/* ==========================================
+   文本样式工具类
+   ========================================== */
+.text-display {
+    font-family: var(--font-display);
+}
+
+.text-elegant {
+    font-family: var(--font-elegant);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+.text-sans {
+    font-family: var(--font-sans);
+}
+
+/* 文本对齐 - RTL支持 */
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+[dir="rtl"] .text-left {
+    text-align: right;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left;
+}
+
+/* ==========================================
+   文本颜色
+   ========================================== */
+.text-gold {
+    color: var(--accent-gold);
+}
+
+.text-white {
+    color: var(--white);
+}
+
+.text-gray {
+    color: var(--warm-gray);
+}
+
+.text-muted {
+    color: var(--medium-gray);
+}
+
+/* ==========================================
+   强调和高亮
+   ========================================== */
+.highlight {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+strong, b {
+    font-weight: 600;
+    color: var(--white);
+}
+
+em, i {
+    font-style: italic;
+}
+
+mark {
+    background: linear-gradient(120deg, transparent 0%, var(--accent-gold) 0%, var(--accent-gold) 100%, transparent 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 40%;
+    background-position: 0 85%;
+    padding: 0 0.2em;
+    color: var(--white);
+}
+
+/* ==========================================
+   引用
+   ========================================== */
+blockquote {
+    position: relative;
+    padding: var(--spacing-lg);
+    padding-inline-start: var(--spacing-xl);
+    margin: var(--spacing-xl) 0;
+    border-inline-start: 3px solid var(--accent-gold);
+    font-family: var(--font-elegant);
+    font-size: var(--text-lg);
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--warm-gray);
+}
+
+blockquote::before {
+    content: '"';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--accent-gold);
+    opacity: 0.3;
+}
+
+[dir="rtl"] blockquote::before {
+    left: auto;
+    right: 0;
+}
+
+/* ==========================================
+   链接
+   ========================================== */
+a {
+    color: var(--accent-gold);
+    text-decoration: none;
+    transition: color var(--transition-base);
+    position: relative;
+}
+
+a:hover {
+    color: var(--soft-gold);
+}
+
+a:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+/* 下划线链接 */
+.link-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-gold);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.link-underline:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* ==========================================
+   列表
+   ========================================== */
+ul, ol {
+    padding-inline-start: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+li {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.8;
+}
+
+ul li::marker {
+    color: var(--accent-gold);
+}
+
+ol li::marker {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+/* 无样式列表 */
+.list-none {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+/* 优雅列表 */
+.elegant-list {
+    list-style: none;
+    padding-inline-start: 0;
+}
+
+.elegant-list li {
+    position: relative;
+    padding-inline-start: var(--spacing-md);
+}
+
+.elegant-list li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-size: 0.6em;
+    top: 0.5em;
+}
+
+[dir="rtl"] .elegant-list li::before {
+    left: auto;
+    right: 0;
+}
+
+/* ==========================================
+   数字和统计
+   ========================================== */
+.number-display {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    font-weight: 900;
+    color: var(--accent-gold);
+    line-height: 1;
+}
+
+/* 数字在RTL中保持LTR */
+[dir="rtl"] .number-display {
+    direction: ltr;
+    display: inline-block;
+}
+
+/* ==========================================
+   特殊文本效果
+   ========================================== */
+
+/* 金色渐变文本 */
+.text-gradient-gold {
+    background: linear-gradient(135deg, var(--accent-gold), var(--soft-gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* 文本阴影 */
+.text-shadow-gold {
+    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+}
+
+/* 首字母大写装饰 */
+.drop-cap::first-letter {
+    float: left;
+    font-size: 4em;
+    line-height: 0.8;
+    margin-right: 0.1em;
+    font-family: var(--font-display);
+    color: var(--accent-gold);
+}
+
+[dir="rtl"] .drop-cap::first-letter {
+    float: right;
+    margin-right: 0;
+    margin-left: 0.1em;
+}
+
+/* ==========================================
+   阅读优化
+   ========================================== */
+.reading-content {
+    max-width: 70ch;
+    margin-inline: auto;
+}
+
+.reading-content p {
+    text-align: justify;
+    hyphens: auto;
+}
+
+[lang="ar"] .reading-content p,
+[lang="ar-SA"] .reading-content p {
+    text-align: right;
+    hyphens: none;
+}
+
+/* ==========================================
+   响应式排版
+   ========================================== */
+@media (max-width: 1024px) {
+    body {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    blockquote {
+        padding: var(--spacing-md);
+        padding-inline-start: var(--spacing-lg);
+        font-size: var(--text-base);
+    }
+}
+
+/* ==========================================
+   打印样式
+   ========================================== */
+@media print {
+    body {
+        color: #000;
+        font-size: 12pt;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: #000;
+        page-break-after: avoid;
+    }
+
+    p {
+        orphans: 3;
+        widows: 3;
+    }
+
+    a {
+        color: #000;
+        text-decoration: underline;
+    }
+}

@@ -1,0 +1,40 @@
+<!-- ==========================================
+   YECO 共享导航栏组件
+   包含: Logo, 导航链接, 语言切换器
+   ========================================== -->
+<nav class="navigation">
+    <div class="nav-container">
+        <!-- Logo -->
+        <a href="/pages/home/" class="nav-logo">YECO</a>
+
+        <!-- 汉堡菜单按钮（移动端） -->
+        <button class="nav-hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <!-- 导航菜单 -->
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="/pages/home/" class="nav-item" data-i18n="nav.home"></a>
+                <a href="/pages/trends/" class="nav-item" data-i18n="nav.trends"></a>
+            </div>
+
+            <!-- 语言切换器（下拉菜单设计） -->
+            <div class="nav-language-switcher">
+                <button class="lang-dropdown-button" aria-haspopup="true" aria-expanded="false">
+                    <span class="current-lang-text"></span>
+                    <svg class="lang-dropdown-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="lang-dropdown-menu" role="menu">
+                    <button class="lang-option" data-lang="zh-CN" role="menuitem">中文</button>
+                    <button class="lang-option" data-lang="en-US" role="menuitem">English</button>
+                    <button class="lang-option" data-lang="ar-SA" role="menuitem">العربية</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

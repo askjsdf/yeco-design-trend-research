@@ -1,0 +1,293 @@
+/* ==========================================
+   YECO 共享页脚样式
+   RTL支持 + 响应式设计
+   ========================================== */
+
+/* ==========================================
+   页脚基础样式
+   ========================================== */
+.footer {
+    padding: var(--spacing-xxl, 3rem) 0 var(--spacing-lg, 1.5rem);
+    background: var(--primary-black, #000000);
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-container {
+    max-width: var(--container-xl, 1280px);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl, 2rem);
+}
+
+.footer-content {
+    text-align: center;
+}
+
+/* ==========================================
+   页脚Logo
+   ========================================== */
+.footer-logo {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-size: var(--text-3xl, 1.875rem);
+    font-weight: 700;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--accent-gold, #D4AF37), var(--soft-gold, #F4E4C1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--spacing-sm, 0.75rem);
+    transition: all var(--transition-base, 0.3s ease);
+}
+
+.footer-logo:hover {
+    filter: brightness(1.2);
+}
+
+/* ==========================================
+   品牌标语
+   ========================================== */
+.footer-tagline {
+    color: var(--medium-gray, #808080);
+    font-size: var(--text-base, 1rem);
+    margin-bottom: var(--spacing-lg, 1.5rem);
+    line-height: 1.6;
+}
+
+/* ==========================================
+   分割线
+   ========================================== */
+.footer-divider {
+    width: 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-gold, #D4AF37), transparent);
+    margin: var(--spacing-lg, 1.5rem) auto;
+    opacity: 0.6;
+}
+
+/* ==========================================
+   底部信息
+   ========================================== */
+.footer-meta {
+    color: var(--medium-gray, #808080);
+    font-size: var(--text-sm, 0.875rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-sm, 0.75rem);
+    flex-wrap: wrap;
+}
+
+.separator {
+    color: var(--dark-gray, #404040);
+}
+
+/* ==========================================
+   返回顶部按钮
+   ========================================== */
+.back-to-top {
+    position: fixed;
+    bottom: var(--spacing-lg, 1.5rem);
+    right: var(--spacing-lg, 1.5rem);
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--accent-gold, #D4AF37), var(--soft-gold, #F4E4C1));
+    color: var(--primary-black, #000000);
+    border: none;
+    border-radius: 50%;
+    font-size: var(--text-2xl, 1.5rem);
+    font-weight: 700;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all var(--transition-base, 0.3s ease);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    z-index: var(--z-fixed, 1000);
+}
+
+[dir="rtl"] .back-to-top {
+    right: auto;
+    left: var(--spacing-lg, 1.5rem);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+    filter: brightness(1.1);
+}
+
+.back-to-top:active {
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   平板设备适配
+   ========================================== */
+@media (max-width: 1024px) {
+    .footer-container {
+        padding: 0 var(--spacing-lg, 1.5rem);
+    }
+}
+
+/* ==========================================
+   移动端适配
+   ========================================== */
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--spacing-xl, 2rem) 0 var(--spacing-md, 1rem);
+    }
+
+    .footer-container {
+        padding: 0 var(--spacing-md, 1rem);
+    }
+
+    .footer-logo {
+        font-size: var(--text-2xl, 1.5rem);
+        letter-spacing: 2px;
+    }
+
+    .footer-tagline {
+        font-size: var(--text-sm, 0.875rem);
+    }
+
+    .footer-meta {
+        font-size: 12px;
+        gap: var(--spacing-xs, 0.5rem);
+    }
+
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: var(--spacing-md, 1rem);
+        right: var(--spacing-md, 1rem);
+        font-size: var(--text-xl, 1.25rem);
+    }
+
+    [dir="rtl"] .back-to-top {
+        left: var(--spacing-md, 1rem);
+    }
+}
+
+/* ==========================================
+   超小屏幕适配
+   ========================================== */
+@media (max-width: 480px) {
+    .footer {
+        padding: var(--spacing-lg, 1.5rem) 0 var(--spacing-sm, 0.75rem);
+    }
+
+    .footer-container {
+        padding: 0 var(--spacing-sm, 0.75rem);
+    }
+
+    .footer-logo {
+        font-size: var(--text-xl, 1.25rem);
+    }
+
+    .footer-tagline {
+        font-size: 12px;
+        margin-bottom: var(--spacing-md, 1rem);
+    }
+
+    .footer-divider {
+        width: 40px;
+        margin: var(--spacing-md, 1rem) auto;
+    }
+
+    .footer-meta {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        bottom: var(--spacing-sm, 0.75rem);
+        right: var(--spacing-sm, 0.75rem);
+        font-size: var(--text-lg, 1.125rem);
+    }
+
+    [dir="rtl"] .back-to-top {
+        left: var(--spacing-sm, 0.75rem);
+    }
+}
+
+/* ==========================================
+   RTL 特定样式调整
+   ========================================== */
+[dir="rtl"] .footer-logo,
+[dir="rtl"] .footer-tagline {
+    font-family: var(--font-arabic, 'Noto Sans Arabic', sans-serif);
+}
+
+/* ==========================================
+   打印样式
+   ========================================== */
+@media print {
+    .footer {
+        border-top: 1px solid #000;
+        background: white;
+        page-break-after: avoid;
+    }
+
+    .back-to-top {
+        display: none;
+    }
+
+    .footer-logo,
+    .footer-tagline,
+    .footer-meta {
+        color: #000 !important;
+        -webkit-text-fill-color: #000 !important;
+    }
+
+    .footer-divider {
+        background: #000;
+    }
+}
+
+/* ==========================================
+   无障碍支持
+   ========================================== */
+.back-to-top:focus {
+    outline: 2px solid var(--accent-gold, #D4AF37);
+    outline-offset: 2px;
+}
+
+.back-to-top:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================
+   减少动画模式
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .back-to-top,
+    .footer-logo {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   高对比度模式支持
+   ========================================== */
+@media (prefers-contrast: high) {
+    .footer {
+        border-top-width: 2px;
+    }
+
+    .back-to-top {
+        border: 2px solid var(--accent-gold, #D4AF37);
+    }
+}

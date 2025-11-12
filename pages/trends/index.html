@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="YECO趋势研究 - 探索香水行业的最新趋势与深度洞察">
+    <meta name="keywords" content="香水趋势,行业研究,消费者洞察,设计趋势,中东市场">
+
+    <title data-i18n="pageTitle">趋势研究 - YECO</title>
+
+    <!-- 全局样式 -->
+    <link rel="stylesheet" href="../../assets/styles/variables.css">
+    <link rel="stylesheet" href="../../assets/styles/typography.css">
+    <link rel="stylesheet" href="../../assets/styles/rtl.css">
+
+    <!-- 组件样式 -->
+    <link rel="stylesheet" href="../../shared/components/Navigation/styles.css">
+    <link rel="stylesheet" href="../../shared/components/Footer/styles.css">
+
+    <!-- 页面样式 -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Lucide图标库 -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- 导航栏占位符 -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- 伊斯兰纹样背景 -->
+    <div class="islamic-pattern"></div>
+
+    <!-- 英雄区 -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-ornament"></div>
+            <h1 class="hero-title" data-i18n="hero.title">深度趋势研究</h1>
+            <div class="hero-subtitle" data-i18n="hero.subtitle">数据驱动的设计洞察</div>
+            <p class="hero-description" data-i18n="hero.description">
+                基于全球社交平台的消费者洞察，为您揭示香水行业的最新趋势与设计方向。我们深入Reddit、Instagram、TikTok等平台，将海量数据转化为可落地的设计策略。
+            </p>
+            <div class="hero-scroll" data-i18n="hero.scroll">向下滚动探索</div>
+        </div>
+    </section>
+
+    <!-- 筛选器区域 -->
+    <section class="filters-section">
+        <div class="container">
+            <h2 class="filters-title" data-i18n="filters.title">筛选报告</h2>
+
+            <div class="filters-container">
+                <!-- 搜索框 -->
+                <div class="filter-group search-group">
+                    <input
+                        type="text"
+                        id="searchInput"
+                        class="search-input"
+                        data-i18n-placeholder="filters.search.placeholder"
+                        placeholder="搜索报告标题、关键词...">
+                    <span class="search-icon"><i data-lucide="search" class="icon"></i></span>
+                </div>
+
+                <!-- 类别筛选 -->
+                <div class="filter-group">
+                    <label for="categoryFilter" class="filter-label" data-i18n="filters.category.label">按类别</label>
+                    <select id="categoryFilter" class="filter-select">
+                        <option value="all" data-i18n="filters.category.all">全部类别</option>
+                    </select>
+                </div>
+
+                <!-- 地区筛选 -->
+                <div class="filter-group">
+                    <label for="regionFilter" class="filter-label" data-i18n="filters.region.label">按地区</label>
+                    <select id="regionFilter" class="filter-select">
+                        <option value="all" data-i18n="filters.region.all">全部地区</option>
+                    </select>
+                </div>
+
+                <!-- 排序 -->
+                <div class="filter-group">
+                    <label for="sortFilter" class="filter-label" data-i18n="filters.sort.label">排序</label>
+                    <select id="sortFilter" class="filter-select">
+                        <option value="latest" data-i18n="filters.sort.latest">最新发布</option>
+                        <option value="oldest" data-i18n="filters.sort.oldest">最早发布</option>
+                    </select>
+                </div>
+
+                <!-- 重置按钮 -->
+                <button class="reset-button" id="resetFilters" data-i18n="filters.reset">重置筛选</button>
+            </div>
+
+            <!-- 结果统计 -->
+            <div class="results-info">
+                <span id="resultsCount" class="results-count"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 报告网格 -->
+    <section class="reports-section">
+        <div class="container">
+            <!-- 加载状态 -->
+            <div class="loading-state" id="loadingState">
+                <div class="loading-spinner"></div>
+                <p data-i18n="common.loading">加载中...</p>
+            </div>
+
+            <!-- 空状态 -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon"><i data-lucide="inbox" class="icon"></i></div>
+                <h3 data-i18n="reports.noResults">未找到匹配的报告</h3>
+                <p data-i18n="reports.noResultsDesc">请尝试调整筛选条件或搜索关键词</p>
+            </div>
+
+            <!-- 报告网格 -->
+            <div class="reports-grid" id="reportsGrid">
+                <!-- 报告卡片将通过JavaScript动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于研究方法 -->
+    <section class="about-research-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="about.title">关于我们的研究方法</h2>
+                <p class="section-description" data-i18n="about.description">
+                    YECO的趋势研究基于严谨的数据科学方法，结合定性与定量分析，深入挖掘消费者真实需求。
+                </p>
+            </div>
+
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-icon"><i data-lucide="ear" class="icon"></i></div>
+                    <h3 class="method-title" data-i18n="about.methods.0.title">社交聆听</h3>
+                    <p class="method-desc" data-i18n="about.methods.0.description">
+                        监测Reddit、Instagram等平台的消费者讨论，捕捉真实声音
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon"><i data-lucide="bar-chart-3" class="icon"></i></div>
+                    <h3 class="method-title" data-i18n="about.methods.1.title">数据分析</h3>
+                    <p class="method-desc" data-i18n="about.methods.1.description">
+                        运用AI技术分析海量数据，识别趋势模式与关键洞察
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon"><i data-lucide="globe" class="icon"></i></div>
+                    <h3 class="method-title" data-i18n="about.methods.2.title">文化洞察</h3>
+                    <p class="method-desc" data-i18n="about.methods.2.description">
+                        深入理解不同地区的文化背景，提供本地化设计建议
+                    </p>
+                </div>
+
+                <div class="method-card">
+                    <div class="method-icon"><i data-lucide="palette" class="icon"></i></div>
+                    <h3 class="method-title" data-i18n="about.methods.3.title">设计转化</h3>
+                    <p class="method-desc" data-i18n="about.methods.3.description">
+                        将研究洞察转化为可落地的设计策略与创意方向
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚占位符 -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 脚本 -->
+    <!-- 1. i18n核心系统 -->
+    <script src="../../shared/i18n/i18n-core.js"></script>
+    <script src="../../shared/i18n/rtl-handler.js"></script>
+
+    <!-- 2. 共享组件翻译数据 -->
+    <script src="../../shared/components/Navigation/i18n.js"></script>
+    <script src="../../shared/components/Footer/i18n.js"></script>
+
+    <!-- 3. 页面翻译数据 -->
+    <script src="i18n/zh-CN.js"></script>
+    <script src="i18n/en-US.js"></script>
+    <script src="i18n/ar-SA.js"></script>
+
+    <!-- 4. 共享组件脚本 -->
+    <script src="../../shared/components/Navigation/script.js"></script>
+    <script src="../../shared/components/Footer/script.js"></script>
+
+    <!-- 5. 页面脚本 -->
+    <script src="script.js"></script>
+
+    <!-- 初始化Lucide图标 -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

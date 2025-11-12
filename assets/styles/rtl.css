@@ -1,0 +1,433 @@
+/* ==========================================
+   YECO RTL (Right-to-Left) 支持
+   专为阿拉伯语等RTL语言优化
+   ========================================== */
+
+/* ==========================================
+   RTL基础设置
+   ========================================== */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] body {
+    text-align: right;
+}
+
+/* ==========================================
+   阿拉伯语字体优化
+   ========================================== */
+[lang="ar"],
+[lang="ar-SA"] {
+    font-family: var(--font-arabic);
+    letter-spacing: 0;
+    word-spacing: 0;
+}
+
+/* 阿拉伯语标题 */
+[lang="ar"] h1,
+[lang="ar"] h2,
+[lang="ar"] h3,
+[lang="ar-SA"] h1,
+[lang="ar-SA"] h2,
+[lang="ar-SA"] h3 {
+    font-family: var(--font-arabic);
+    font-weight: 700;
+}
+
+/* ==========================================
+   数字处理 - 在RTL中保持LTR
+   ========================================== */
+[dir="rtl"] .number,
+[dir="rtl"] .stat-number,
+[dir="rtl"] .number-display,
+[dir="rtl"] time {
+    direction: ltr;
+    display: inline-block;
+    text-align: left;
+}
+
+/* 货币符号 */
+[dir="rtl"] .currency {
+    direction: ltr;
+    display: inline-block;
+}
+
+/* ==========================================
+   图标和箭头翻转
+   ========================================== */
+[dir="rtl"] .icon-arrow,
+[dir="rtl"] .arrow-right,
+[dir="rtl"] .chevron-right {
+    transform: scaleX(-1);
+}
+
+/* 返回图标不翻转 */
+[dir="rtl"] .icon-back {
+    transform: scaleX(-1);
+}
+
+/* ==========================================
+   布局翻转 - 使用逻辑属性
+   ========================================== */
+
+/* 边距逻辑属性（自动适配RTL） */
+.margin-inline-start {
+    margin-inline-start: var(--spacing-md);
+}
+
+.margin-inline-end {
+    margin-inline-end: var(--spacing-md);
+}
+
+.padding-inline-start {
+    padding-inline-start: var(--spacing-md);
+}
+
+.padding-inline-end {
+    padding-inline-end: var(--spacing-md);
+}
+
+/* ==========================================
+   Flexbox RTL适配
+   ========================================== */
+[dir="rtl"] .flex-row {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .flex-row-reverse {
+    flex-direction: row;
+}
+
+/* 保持中心对齐不变 */
+[dir="rtl"] .justify-center {
+    justify-content: center;
+}
+
+/* ==========================================
+   Grid RTL适配
+   ========================================== */
+/* CSS Grid天然支持RTL，大多数情况无需特殊处理 */
+[dir="rtl"] .grid-layout {
+    direction: rtl;
+}
+
+/* 如需强制从右开始 */
+[dir="rtl"] .grid-start-end {
+    grid-auto-flow: dense;
+}
+
+/* ==========================================
+   定位元素RTL调整
+   ========================================== */
+[dir="rtl"] .absolute-left {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .absolute-right {
+    right: auto;
+    left: 0;
+}
+
+/* 语言切换器 */
+[dir="rtl"] .nav-language-switcher {
+    /* 在导航栏内，由flex布局自动处理位置 */
+}
+
+[dir="rtl"] .lang-dropdown-button {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .lang-dropdown-icon {
+    margin-right: 8px;
+    margin-left: 0;
+}
+
+[dir="rtl"] .lang-dropdown-menu {
+    left: 0;
+    right: auto;
+}
+
+/* 返回顶部按钮 */
+[dir="rtl"] .back-to-top {
+    left: var(--spacing-lg);
+    right: auto;
+}
+
+/* ==========================================
+   导航栏RTL - direction属性自动反转flexbox
+   ========================================== */
+[dir="rtl"] .navigation {
+    direction: rtl;
+}
+
+[dir="rtl"] .nav-container {
+    direction: rtl;
+    /* ⚠️ 不要使用order属性！direction: rtl会自动反转flexbox的元素顺序 */
+}
+
+[dir="rtl"] .nav-item {
+    /* 调整间距方向 */
+    margin-left: var(--spacing-md);
+    margin-right: 0;
+}
+
+/* 下拉菜单 */
+[dir="rtl"] .dropdown-menu {
+    left: auto;
+    right: 0;
+    text-align: right;
+}
+
+/* ==========================================
+   卡片和容器RTL
+   ========================================== */
+[dir="rtl"] .card-header {
+    text-align: right;
+}
+
+[dir="rtl"] .card-content {
+    text-align: right;
+}
+
+/* 图片标题 */
+[dir="rtl"] .image-caption {
+    text-align: right;
+}
+
+/* ==========================================
+   列表RTL
+   ========================================== */
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+    padding-inline-start: var(--spacing-lg);
+    padding-left: 0;
+    padding-right: var(--spacing-lg);
+}
+
+[dir="rtl"] .elegant-list li::before {
+    left: auto;
+    right: 0;
+}
+
+/* ==========================================
+   引用RTL
+   ========================================== */
+[dir="rtl"] blockquote {
+    border-inline-start: 3px solid var(--accent-gold);
+    border-left: none;
+    border-right: 3px solid var(--accent-gold);
+    padding-inline-start: var(--spacing-xl);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-xl);
+}
+
+[dir="rtl"] blockquote::before {
+    left: auto;
+    right: 0;
+}
+
+/* ==========================================
+   表格RTL
+   ========================================== */
+[dir="rtl"] table {
+    direction: rtl;
+}
+
+[dir="rtl"] th,
+[dir="rtl"] td {
+    text-align: right;
+}
+
+/* 数字列保持左对齐 */
+[dir="rtl"] .table-number {
+    text-align: left;
+    direction: ltr;
+}
+
+/* ==========================================
+   表单元素RTL
+   ========================================== */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+    text-align: right;
+    direction: rtl;
+}
+
+/* 搜索框图标 */
+[dir="rtl"] .search-icon {
+    left: auto;
+    right: var(--spacing-sm);
+}
+
+/* ==========================================
+   动画方向RTL调整
+   ========================================== */
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* RTL中反转动画方向 */
+[dir="rtl"] .animate-slide-left {
+    animation: slideInRight 0.5s ease;
+}
+
+[dir="rtl"] .animate-slide-right {
+    animation: slideInLeft 0.5s ease;
+}
+
+/* ==========================================
+   滚动条RTL（仅Webkit）
+   ========================================== */
+[dir="rtl"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+/* ==========================================
+   特殊组件RTL适配
+   ========================================== */
+
+/* 时间轴 */
+[dir="rtl"] .timeline::before {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .timeline-item {
+    padding-left: 0;
+    padding-right: var(--spacing-xl);
+}
+
+/* 徽章 */
+[dir="rtl"] .badge {
+    margin-left: var(--spacing-xs);
+    margin-right: 0;
+}
+
+/* 标签 */
+[dir="rtl"] .tag {
+    margin-left: var(--spacing-xs);
+    margin-right: 0;
+}
+
+/* ==========================================
+   报告特定组件RTL
+   ========================================== */
+
+/* 封面装饰 */
+[dir="rtl"] .cover-ornament-top,
+[dir="rtl"] .cover-ornament-bottom {
+    transform: scaleX(-1);
+}
+
+/* 章节编号 */
+[dir="rtl"] .section-number {
+    margin-left: var(--spacing-md);
+    margin-right: 0;
+}
+
+/* 支柱卡片 */
+[dir="rtl"] .pillar-row.reverse {
+    flex-direction: row;
+}
+
+[dir="rtl"] .pillar-row:not(.reverse) {
+    flex-direction: row-reverse;
+}
+
+/* 案例研究标签 */
+[dir="rtl"] .verdict-badge {
+    left: auto;
+    right: 0;
+}
+
+/* 关键词标签 */
+[dir="rtl"] .keyword {
+    margin-left: var(--spacing-sm);
+    margin-right: 0;
+}
+
+/* ==========================================
+   移动端RTL优化
+   ========================================== */
+@media (max-width: 768px) {
+    [dir="rtl"] .mobile-menu {
+        left: auto;
+        right: 0;
+        transform-origin: top right;
+    }
+
+    [dir="rtl"] .mobile-nav-item {
+        text-align: right;
+    }
+}
+
+/* ==========================================
+   打印RTL
+   ========================================== */
+@media print {
+    [dir="rtl"] {
+        direction: rtl;
+        text-align: right;
+    }
+
+    [dir="rtl"] .page-break {
+        page-break-before: auto;
+        page-break-after: auto;
+    }
+}
+
+/* ==========================================
+   RTL调试辅助（开发时使用）
+   ========================================== */
+[dir="rtl"].debug * {
+    outline: 1px solid rgba(255, 0, 0, 0.1);
+}
+
+[dir="rtl"].debug [class*="rtl"] {
+    outline: 2px solid rgba(0, 255, 0, 0.3);
+}
+
+/* ==========================================
+   浏览器特定RTL修正
+   ========================================== */
+
+/* Safari RTL滚动修正 */
+@supports (-webkit-appearance: none) {
+    [dir="rtl"] .horizontal-scroll {
+        transform: scaleX(-1);
+    }
+
+    [dir="rtl"] .horizontal-scroll > * {
+        transform: scaleX(-1);
+    }
+}
+
+/* Firefox RTL优化 */
+@-moz-document url-prefix() {
+    [dir="rtl"] {
+        text-rendering: optimizeLegibility;
+    }
+}

@@ -1,0 +1,176 @@
+/* ==========================================
+   语言切换器样式
+   ========================================== */
+
+.language-switcher {
+    position: fixed;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: var(--z-fixed);
+    display: flex;
+    gap: var(--spacing-xs);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* RTL位置调整 */
+[dir="rtl"] .language-switcher {
+    right: auto;
+    left: var(--spacing-lg);
+}
+
+/* 语言标签 */
+.lang-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    color: var(--warm-gray);
+    font-size: var(--text-sm);
+    font-family: var(--font-sans);
+    user-select: none;
+    border: 1px solid transparent;
+}
+
+.lang-tab:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent-gold);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.lang-tab.active {
+    background: var(--accent-gold);
+    color: var(--primary-black);
+    font-weight: 600;
+    border-color: var(--accent-gold);
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+/* 语言图标 */
+.lang-icon {
+    font-size: 1.2em;
+    line-height: 1;
+}
+
+/* 语言文本 */
+.lang-text {
+    font-weight: 500;
+}
+
+.lang-tab.active .lang-text {
+    font-weight: 600;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .language-switcher {
+        top: var(--spacing-md);
+        right: var(--spacing-md);
+        padding: 6px;
+        gap: 4px;
+    }
+
+    [dir="rtl"] .language-switcher {
+        right: auto;
+        left: var(--spacing-md);
+    }
+
+    .lang-tab {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    /* 移动端只显示图标 */
+    .lang-text {
+        display: none;
+    }
+}
+
+/* 超小屏幕 */
+@media (max-width: 480px) {
+    .language-switcher {
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+    }
+
+    [dir="rtl"] .language-switcher {
+        left: var(--spacing-sm);
+    }
+
+    .lang-tab {
+        padding: 6px;
+    }
+}
+
+/* 动画效果 */
+@keyframes langSwitch {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.lang-tab.active {
+    animation: langSwitch 0.3s ease;
+}
+
+/* 悬停提示 */
+.lang-tab {
+    position: relative;
+}
+
+.lang-tab::after {
+    content: attr(data-lang);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    background: rgba(0, 0, 0, 0.9);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-base), transform var(--transition-base);
+    z-index: 1;
+}
+
+.lang-tab:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(4px);
+}
+
+.lang-tab.active::after {
+    display: none;
+}
+
+/* 打印时隐藏 */
+@media print {
+    .language-switcher {
+        display: none;
+    }
+}
+
+/* 无障碍支持 */
+.lang-tab:focus {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 2px;
+}
+
+.lang-tab:focus:not(:focus-visible) {
+    outline: none;
+}

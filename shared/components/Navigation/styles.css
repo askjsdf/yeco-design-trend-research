@@ -1,0 +1,532 @@
+/* ==========================================
+   YECO 共享导航栏样式
+   响应式设计 + 语言切换器集成 + RTL支持
+   ========================================== */
+
+/* ==========================================
+   导航栏基础样式
+   ========================================== */
+.navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    z-index: var(--z-fixed, 1000);
+    transition: all var(--transition-base, 0.3s ease);
+}
+
+.navigation.scrolled {
+    padding: 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.98);
+}
+
+/* 导航容器 - Flexbox布局支持RTL反转 */
+.nav-container {
+    max-width: var(--container-xl, 1280px);
+    margin: 0 auto;
+    padding: var(--spacing-md, 1rem) var(--spacing-xl, 2rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-lg, 1.5rem);
+}
+
+.navigation.scrolled .nav-container {
+    padding: var(--spacing-sm, 0.75rem) var(--spacing-xl, 2rem);
+}
+
+/* ==========================================
+   Logo
+   ========================================== */
+.nav-logo {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-size: var(--text-2xl, 1.5rem);
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, var(--accent-gold, #D4AF37), var(--soft-gold, #F4E4C1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition-base, 0.3s ease);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* ==========================================
+   导航菜单
+   ========================================== */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-xl, 2rem);
+    flex: 1;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-lg, 1.5rem);
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* 导航项 */
+.nav-item {
+    position: relative;
+    color: var(--white, #FFFFFF);
+    text-decoration: none;
+    font-size: var(--text-base, 1rem);
+    font-weight: 500;
+    padding: 8px 0;
+    transition: all var(--transition-base, 0.3s ease);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-gold, #D4AF37), var(--soft-gold, #F4E4C1));
+    transition: width var(--transition-base, 0.3s ease);
+}
+
+[dir="rtl"] .nav-item::after {
+    left: auto;
+    right: 0;
+}
+
+.nav-item:hover {
+    color: var(--accent-gold, #D4AF37);
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.nav-item.active {
+    color: var(--accent-gold, #D4AF37);
+}
+
+.nav-item.active::after {
+    width: 100%;
+}
+
+/* ==========================================
+   语言切换器（奢华优雅的下拉菜单设计）
+   ========================================== */
+.nav-language-switcher {
+    position: relative;
+}
+
+/* 下拉按钮 */
+.lang-dropdown-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 20, 0.9));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: var(--accent-gold, #D4AF37);
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base, 0.3s ease);
+    backdrop-filter: blur(10px);
+    letter-spacing: 0.5px;
+    min-width: 120px;
+    justify-content: space-between;
+}
+
+.lang-dropdown-button:hover {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.1));
+    border-color: var(--accent-gold, #D4AF37);
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.25);
+    transform: translateY(-1px);
+}
+
+.lang-dropdown-button:active {
+    transform: translateY(0);
+}
+
+.current-lang-text {
+    flex: 1;
+    text-align: left;
+}
+
+[dir="rtl"] .current-lang-text {
+    text-align: right;
+}
+
+.lang-dropdown-icon {
+    transition: transform var(--transition-base, 0.3s ease);
+    flex-shrink: 0;
+}
+
+.lang-dropdown-button[aria-expanded="true"] .lang-dropdown-icon {
+    transform: rotate(180deg);
+}
+
+/* 下拉菜单 */
+.lang-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 140px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.98));
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(212, 175, 55, 0.1) inset;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-base, 0.3s ease);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+[dir="rtl"] .lang-dropdown-menu {
+    right: auto;
+    left: 0;
+}
+
+.lang-dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* 语言选项 */
+.lang-option {
+    display: block;
+    width: 100%;
+    padding: 12px 16px;
+    background: transparent;
+    border: none;
+    color: var(--white, #FFFFFF);
+    font-size: var(--text-sm, 0.875rem);
+    font-weight: 500;
+    text-align: left;
+    cursor: pointer;
+    transition: all var(--transition-base, 0.3s ease);
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+[dir="rtl"] .lang-option {
+    text-align: right;
+}
+
+.lang-option:hover {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    color: var(--accent-gold, #D4AF37);
+    padding-left: 20px;
+}
+
+[dir="rtl"] .lang-option:hover {
+    padding-left: 16px;
+    padding-right: 20px;
+}
+
+.lang-option.active {
+    background: linear-gradient(90deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+    color: var(--accent-gold, #D4AF37);
+    font-weight: 600;
+}
+
+.lang-option.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--accent-gold, #D4AF37), var(--soft-gold, #F4E4C1));
+}
+
+[dir="rtl"] .lang-option.active::before {
+    left: auto;
+    right: 0;
+}
+
+/* 分隔线效果 */
+.lang-option:not(:last-child) {
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* ==========================================
+   汉堡菜单按钮（移动端）
+   ========================================== */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: var(--radius-sm, 0.25rem);
+    cursor: pointer;
+    padding: 0;
+    transition: all var(--transition-base, 0.3s ease);
+    z-index: 1001;
+}
+
+.nav-hamburger:hover {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: var(--accent-gold, #D4AF37);
+}
+
+.hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: var(--accent-gold, #D4AF37);
+    border-radius: 2px;
+    transition: all var(--transition-base, 0.3s ease);
+    margin: 3px 0;
+}
+
+/* 汉堡菜单激活状态 */
+.nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-hamburger[aria-expanded="true"] .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* ==========================================
+   平板设备适配
+   ========================================== */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: var(--spacing-sm, 0.75rem) var(--spacing-lg, 1.5rem);
+    }
+
+    .nav-links {
+        gap: var(--spacing-md, 1rem);
+    }
+
+    .nav-menu {
+        gap: var(--spacing-lg, 1.5rem);
+    }
+
+    .nav-item {
+        font-size: var(--text-sm, 0.875rem);
+    }
+}
+
+/* ==========================================
+   移动端适配
+   ========================================== */
+@media (max-width: 768px) {
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 80px 0 var(--spacing-xl, 2rem);
+        transform: translateX(100%);
+        transition: transform var(--transition-base, 0.3s ease);
+        border-left: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: -4px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    [dir="rtl"] .nav-menu {
+        right: auto;
+        left: 0;
+        transform: translateX(-100%);
+        border-left: none;
+        border-right: 1px solid rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-menu.active {
+        transform: translateX(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        width: 100%;
+        padding: var(--spacing-lg, 1.5rem) 0;
+    }
+
+    .nav-item {
+        padding: var(--spacing-md, 1rem) var(--spacing-xl, 2rem);
+        font-size: var(--text-lg, 1.125rem);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+    .nav-item::after {
+        display: none;
+    }
+
+    .nav-item:hover,
+    .nav-item.active {
+        background: rgba(212, 175, 55, 0.1);
+    }
+
+    .nav-language-switcher {
+        margin: var(--spacing-lg, 1.5rem) var(--spacing-xl, 2rem);
+    }
+
+    .lang-dropdown-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .lang-dropdown-menu {
+        width: calc(100% - var(--spacing-xl, 2rem) * 2);
+        left: var(--spacing-xl, 2rem);
+        right: var(--spacing-xl, 2rem);
+    }
+}
+
+/* ==========================================
+   超小屏幕适配
+   ========================================== */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+    }
+
+    .nav-logo {
+        font-size: var(--text-xl, 1.25rem);
+    }
+
+    .nav-menu {
+        width: 100%;
+    }
+
+    .nav-item {
+        font-size: var(--text-base, 1rem);
+        padding: var(--spacing-sm, 0.75rem) var(--spacing-lg, 1.5rem);
+    }
+
+    .nav-language-switcher {
+        margin: var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
+    }
+}
+
+/* ==========================================
+   RTL 特定样式调整
+   ========================================== */
+/* direction: rtl 会反转.nav-container的子元素（Logo和Menu）
+   但我们需要保持.nav-links内部链接的原始顺序 */
+
+[dir="rtl"] .nav-links {
+    /* 抵消父元素direction的影响，保持链接原始顺序 */
+    direction: ltr;
+}
+
+[dir="rtl"] .nav-logo,
+[dir="rtl"] .nav-item {
+    font-family: var(--font-arabic, 'Noto Sans Arabic', sans-serif);
+}
+
+/* ==========================================
+   打印样式
+   ========================================== */
+@media print {
+    .navigation {
+        position: static;
+        border-bottom: 1px solid #000;
+        background: white;
+    }
+
+    .nav-hamburger,
+    .nav-language-switcher {
+        display: none;
+    }
+
+    .nav-menu {
+        display: flex;
+    }
+}
+
+/* ==========================================
+   无障碍支持
+   ========================================== */
+.nav-item:focus,
+.lang-dropdown-button:focus,
+.lang-option:focus,
+.nav-hamburger:focus {
+    outline: 2px solid var(--accent-gold, #D4AF37);
+    outline-offset: 2px;
+}
+
+.nav-item:focus:not(:focus-visible),
+.lang-dropdown-button:focus:not(:focus-visible),
+.lang-option:focus:not(:focus-visible),
+.nav-hamburger:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==========================================
+   减少动画模式
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    .navigation,
+    .nav-item,
+    .nav-item::after,
+    .lang-dropdown-button,
+    .lang-dropdown-menu,
+    .lang-dropdown-icon,
+    .lang-option,
+    .nav-hamburger,
+    .hamburger-line,
+    .nav-menu {
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   高对比度模式支持
+   ========================================== */
+@media (prefers-contrast: high) {
+    .navigation {
+        border-bottom-width: 2px;
+    }
+
+    .lang-dropdown-button,
+    .lang-dropdown-menu,
+    .nav-hamburger {
+        border-width: 2px;
+    }
+}

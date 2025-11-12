@@ -1,0 +1,45 @@
+{
+  "reports": [
+    {
+      "id": "2024-10-middleeast",
+      "date": "2024-10",
+      "year": 2024,
+      "month": 10,
+      "region": "middleeast",
+      "title": {
+        "zh-CN": "香水行业趋势月刊 - 中东版",
+        "en-US": "Perfume Industry Trend Monthly - Middle East Edition",
+        "ar-SA": "تقرير اتجاهات صناعة العطور الشهري - نسخة الشرق الأوسط"
+      },
+      "subtitle": {
+        "zh-CN": "解码香水消费者的灵魂",
+        "en-US": "Decoding the Soul of Perfume Consumers",
+        "ar-SA": "فك شفرة روح مستهلكي العطور"
+      },
+      "description": {
+        "zh-CN": "基于Reddit香水社区的深度定性分析，揭示香水瓶身从容器到图腾物件的市场转变。本报告深入探讨了设计美学、叙事趋势和用户动态三大核心维度。",
+        "en-US": "Based on in-depth qualitative analysis of Reddit perfume communities, revealing the market transformation of perfume bottles from containers to totemic objects. This report deeply explores three core dimensions: design aesthetics, narrative trends, and user dynamics.",
+        "ar-SA": "بناءً على التحليل النوعي المتعمق لمجتمعات العطور في Reddit، يكشف عن التحول السوقي لزجاجات العطور من حاويات إلى أشياء طوطمية. يستكشف هذا التقرير بعمق ثلاثة أبعاد أساسية: جماليات التصميم واتجاهات السرد وديناميكيات المستخدم."
+      },
+      "tags": {
+        "zh-CN": ["设计美学", "叙事趋势", "用户动态", "中东市场", "Reddit洞察"],
+        "en-US": ["Design Aesthetics", "Narrative Trends", "User Dynamics", "Middle East Market", "Reddit Insights"],
+        "ar-SA": ["جماليات التصميم", "اتجاهات السرد", "ديناميكيات المستخدم", "سوق الشرق الأوسط", "رؤى Reddit"]
+      },
+      "coverImage": "../../pages/reports/2024-10-middleeast/images/01主视觉.png",
+      "url": "../../pages/reports/2024-10-middleeast/",
+      "featured": true,
+      "published": true
+    }
+  ],
+  "categories": {
+    "zh-CN": ["全部", "设计美学", "消费者洞察", "市场趋势", "区域分析"],
+    "en-US": ["All", "Design Aesthetics", "Consumer Insights", "Market Trends", "Regional Analysis"],
+    "ar-SA": ["الكل", "جماليات التصميم", "رؤى المستهلك", "اتجاهات السوق", "التحليل الإقليمي"]
+  },
+  "regions": {
+    "zh-CN": ["全部", "中东", "亚洲", "欧洲", "北美"],
+    "en-US": ["All", "Middle East", "Asia", "Europe", "North America"],
+    "ar-SA": ["الكل", "الشرق الأوسط", "آسيا", "أوروبا", "أمريكا الشمالية"]
+  }
+}
