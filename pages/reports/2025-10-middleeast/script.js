@@ -1045,6 +1045,25 @@ function updateFooter(data) {
 
         // 检查 i18n 系统是否已初始化
         if (!window.i18n.initialized) {
+            if (retryCount === 1) {
+                // 第一次检测到未初始化，主动初始化
+                console.log('🔧 i18n 系统未初始化，开始主动初始化...');
+
+                // 获取报告页面的翻译数据
+                const i18nData = getI18nData();
+
+                // 调用 init() 方法初始化 i18n 系统
+                window.i18n.init(i18nData).then(() => {
+                    console.log('✅ i18n 系统初始化成功');
+                    // 初始化完成后继续设置
+                    setTimeout(setupReportLanguage, 100);
+                }).catch(error => {
+                    console.error('❌ i18n 初始化失败:', error);
+                    updatePageContent('zh-CN');
+                });
+                return;
+            }
+
             if (retryCount < maxRetries) {
                 console.log(`⏳ 等待 i18n 系统初始化... (${retryCount}/${maxRetries})`);
                 setTimeout(setupReportLanguage, 100);
