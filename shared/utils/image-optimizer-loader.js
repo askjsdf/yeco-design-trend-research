@@ -67,27 +67,26 @@
             // 保存原始路径作为 fallback
             img.dataset.originalSrc = originalSrc;
 
-            // 构建响应式 srcset（浏览器自动选择最合适的尺寸）
-            const srcset = [
-                `${getOptimizedPath(originalSrc, 'small')} 640w`,
-                `${getOptimizedPath(originalSrc, 'medium')} 1024w`,
-                `${getOptimizedPath(originalSrc, 'large')} 1920w`
-            ].join(', ');
+            // 使用屏幕宽度选择合适的尺寸
+            const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+            let size = null;
+            if (screenWidth <= 640) {
+                size = 'small';
+            } else if (screenWidth <= 1024) {
+                size = 'medium';
+            } else {
+                size = 'large';
+            }
 
-            // 设置 srcset 和 sizes
-            img.srcset = srcset;
-            img.sizes = img.sizes || '100vw'; // 默认宽度，可以被 CSS 覆盖
-
-            // 设置主 src 为优化后的 WebP
-            const mainWebP = getOptimizedPath(originalSrc);
-            img.src = mainWebP;
+            // 设置优化后的 WebP 路径
+            const optimizedPath = getOptimizedPath(originalSrc, size);
+            img.src = optimizedPath;
 
             // 如果 WebP 加载失败，回退到原图
             img.onerror = function() {
                 if (this.src !== this.dataset.originalSrc) {
                     console.warn(`WebP 加载失败，回退到原图: ${this.dataset.originalSrc}`);
                     this.src = this.dataset.originalSrc;
-                    this.srcset = ''; // 清除 srcset
                 }
             };
 

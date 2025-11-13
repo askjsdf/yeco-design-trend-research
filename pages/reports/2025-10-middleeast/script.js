@@ -1022,17 +1022,42 @@ function updateFooter(data) {
 // 报告页 i18n 初始化 - 使用共享 i18n 系统
 // ==========================================
 (function initReportI18n() {
-    console.log('📊 报告页面: 初始化 i18n...');
+    console.log('📊 报告页面: 开始初始化 i18n...');
 
-    // 等待DOM和i18n系统加载完成
+    let retryCount = 0;
+    const maxRetries = 50; // 最多重试 5 秒
+
+    // 等待 i18n 系统和导航组件完全初始化
     function setupReportLanguage() {
+        retryCount++;
+
+        // 检查 i18n 系统是否存在
         if (!window.i18n) {
-            console.warn('⚠️ 共享 i18n 系统未找到，延迟重试...');
-            setTimeout(setupReportLanguage, 100);
+            if (retryCount < maxRetries) {
+                console.log(`⏳ 等待 i18n 系统加载... (${retryCount}/${maxRetries})`);
+                setTimeout(setupReportLanguage, 100);
+            } else {
+                console.error('❌ i18n 系统加载超时，使用默认语言');
+                updatePageContent('zh-CN');
+            }
+            return;
+        }
+
+        // 检查 i18n 系统是否已初始化
+        if (!window.i18n.initialized) {
+            if (retryCount < maxRetries) {
+                console.log(`⏳ 等待 i18n 系统初始化... (${retryCount}/${maxRetries})`);
+                setTimeout(setupReportLanguage, 100);
+            } else {
+                console.error('❌ i18n 系统初始化超时');
+                updatePageContent('zh-CN');
+            }
             return;
         }
 
         console.log('✅ 检测到共享 i18n 系统');
+        console.log('📍 当前语言:', window.i18n.currentLang);
+        console.log('📦 语言包:', Object.keys(getI18nData()));
 
         // 监听全局语言切换事件
         window.i18n.on('languageChanged', (data) => {
@@ -1043,16 +1068,20 @@ function updateFooter(data) {
 
         // 使用 i18n 系统的当前语言初始化页面
         const currentLang = window.i18n.currentLang || 'zh-CN';
-        console.log('📊 报告页面: 初始化语言为:', currentLang);
+        console.log('📊 报告页面: 使用语言:', currentLang);
         updatePageContent(currentLang);
 
         console.log('✅ 报告页面 i18n 初始化完成');
     }
 
-    // 等待DOM加载完成
+    // 等待DOM加载完成后再初始化
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupReportLanguage);
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('📄 DOM 加载完成，开始设置报告页语言');
+            setTimeout(setupReportLanguage, 300); // 给导航组件时间初始化
+        });
     } else {
-        setupReportLanguage();
+        console.log('📄 DOM 已加载，延迟设置报告页语言');
+        setTimeout(setupReportLanguage, 300);
     }
 })();
