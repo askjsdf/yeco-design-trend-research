@@ -490,11 +490,38 @@ window.exportPlaceholderInfo = exportPlaceholderInfo;
 
 // 语言数据映射 - 使用函数延迟获取,确保语言包已加载
 function getI18nData() {
-    return {
-        'zh-CN': window.zhCN || null,
-        'en-US': window.enUS || null,
-        'ar-SA': window.arSA || null
+    // 合并报告页翻译 + 导航栏翻译 + 页脚翻译
+    const reportData = {
+        'zh-CN': window.zhCN || {},
+        'en-US': window.enUS || {},
+        'ar-SA': window.arSA || {}
     };
+
+    // 合并导航栏翻译数据
+    if (window.navigationI18n) {
+        Object.keys(reportData).forEach(lang => {
+            if (window.navigationI18n[lang]) {
+                reportData[lang] = {
+                    ...reportData[lang],
+                    ...window.navigationI18n[lang]
+                };
+            }
+        });
+    }
+
+    // 合并页脚翻译数据
+    if (window.footerI18n) {
+        Object.keys(reportData).forEach(lang => {
+            if (window.footerI18n[lang]) {
+                reportData[lang] = {
+                    ...reportData[lang],
+                    ...window.footerI18n[lang]
+                };
+            }
+        });
+    }
+
+    return reportData;
 }
 
 // 更新页面文本内容
