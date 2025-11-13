@@ -92,7 +92,7 @@ const trendsTranslations_zhCN = {
     footer: {
         logo: "YECO",
         tagline: "世界文化交融的香水包装设计专家",
-        copyright: "© 2024 YECO. 保留所有权利",
+        copyright: "© 2025 YECO. 保留所有权利",
         location: "总部: 中国"
     },
 

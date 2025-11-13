@@ -82,9 +82,9 @@
 {
   "reports": [
     {
-      "id": "2024-11-asia",
-      "date": "2024-11",
-      "year": 2024,
+      "id": "2025-11-asia",
+      "date": "2025-11",
+      "year": 2025,
       "month": 11,
       "region": "asia",
       "title": {
@@ -107,8 +107,8 @@
         "en-US": ["Tag1", "Tag2"],
         "ar-SA": ["علامة1", "علامة2"]
       },
-      "coverImage": "../../pages/reports/2024-11-asia/images/cover.png",
-      "url": "../../pages/reports/2024-11-asia/",
+      "coverImage": "../../pages/reports/2025-11-asia/images/cover.png",
+      "url": "../../pages/reports/2025-11-asia/",
       "featured": false,
       "published": true
     }

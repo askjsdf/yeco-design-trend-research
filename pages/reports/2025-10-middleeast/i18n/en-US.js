@@ -12,7 +12,7 @@ const enUS = {
         placeholderCover: "Cover Visual",
         placeholderSize: "Recommended Size: 1920x1080px",
         issueNumber: "Issue 01",
-        issueDate: "October 2024",
+        issueDate: "October 2025",
         issueRegion: "Middle East Edition"
     },
 
@@ -443,7 +443,7 @@ const enUS = {
     footer: {
         logo: "YECO",
         tagline: "Dedicated to Innovation and Excellence in the Perfume Industry Supply Chain",
-        copyright: "© 2024 YECO. All Rights Reserved",
+        copyright: "© 2025 YECO. All Rights Reserved",
         source: "Based on In-Depth Reddit Community Insights",
         region: "Middle East Edition"
     }

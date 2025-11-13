@@ -114,11 +114,11 @@ const homeZhCN = {
             title: "最新报告",
             reports: [
                 {
-                    date: "2024年10月",
+                    date: "2025年10月",
                     title: "香水行业趋势月刊 - 中东版",
                     subtitle: "解码香水消费者的灵魂",
                     desc: "基于Reddit香水社区的深度定性分析，揭示香水瓶身从容器到图腾物件的市场转变",
-                    link: "/pages/reports/2024-10-middleeast/",
+                    link: "/pages/reports/2025-10-middleeast/",
                     tags: ["设计美学", "叙事趋势", "用户动态", "中东市场"]
                 }
             ]
@@ -181,7 +181,7 @@ const homeZhCN = {
             }
         },
 
-        copyright: "© 2024 YECO. 保留所有权利",
+        copyright: "© 2025 YECO. 保留所有权利",
         location: "总部: 中国"
     }
 };

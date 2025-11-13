@@ -644,8 +644,8 @@ const formatter = new Intl.DateTimeFormat(i18n.getCurrentLanguage(), {
 });
 
 console.log(formatter.format(date));
-// zh-CN: 2024年11月12日
-// en-US: November 12, 2024
+// zh-CN: 2025年11月12日
+// en-US: November 12, 2025
 // ar-SA: ١٢ نوفمبر ٢٠٢٤
 ```
 
@@ -878,4 +878,4 @@ function createCard(data) {
 
 ## 更新日志
 
-- **2024-11-12**: 初始版本创建
+- **2025-11-12**: 初始版本创建

@@ -12,7 +12,7 @@ const arSA = {
         placeholderCover: "صورة الغلاف",
         placeholderSize: "الحجم الموصى به: 1920x1080 بكسل",
         issueNumber: "العدد 01",
-        issueDate: "أكتوبر 2024",
+        issueDate: "أكتوبر 2025",
         issueRegion: "إصدار الشرق الأوسط"
     },
 
@@ -443,7 +443,7 @@ const arSA = {
     footer: {
         logo: "YECO",
         tagline: "مكرس للابتكار والتميز في سلسلة توريد صناعة العطور",
-        copyright: "© 2024 YECO. جميع الحقوق محفوظة",
+        copyright: "© 2025 YECO. جميع الحقوق محفوظة",
         source: "بناءً على رؤى متعمقة لمجتمع Reddit",
         region: "إصدار الشرق الأوسط"
     }

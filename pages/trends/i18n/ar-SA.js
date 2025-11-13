@@ -92,7 +92,7 @@ const trendsTranslations_arSA = {
     footer: {
         logo: "YECO",
         tagline: "الاندماج الثقافي العالمي في تصميم تغليف العطور",
-        copyright: "© 2024 YECO. جميع الحقوق محفوظة",
+        copyright: "© 2025 YECO. جميع الحقوق محفوظة",
         location: "المقر الرئيسي: الصين"
     },
 

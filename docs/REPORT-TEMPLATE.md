@@ -35,8 +35,8 @@
 
 ```
 /pages/reports/
-├── 2024-10-middleeast/     # 2024年10月中东版
-├── 2024-11-europe/          # 2024年11月欧洲版
+├── 2025-10-middleeast/     # 2025年10月中东版
+├── 2025-11-europe/          # 2025年11月欧洲版
 ├── 2025-01-asia/            # 2025年1月亚洲版
 └── 2025-03-global/          # 2025年3月全球版
 ```
@@ -44,7 +44,7 @@
 **命名规则**：
 - 日期使用 `YYYY-MM` 格式
 - 地区使用小写英文单词，多个单词用连字符
-- 示例：`2024-10-middleeast`、`2024-11-northamerica`
+- 示例：`2025-10-middleeast`、`2025-11-northamerica`
 
 ### 2.2 图片命名
 
@@ -91,7 +91,7 @@ images/
 每个报告包含以下文件：
 
 ```
-/pages/reports/2024-10-middleeast/
+/pages/reports/2025-10-middleeast/
 ├── index.html              # 主HTML文件
 ├── style.css               # 页面样式
 ├── script.js               # 页面脚本
@@ -187,7 +187,7 @@ images/
         <div class="cover-issue">
             <span data-i18n="cover.issue">第01期</span>
             <span class="separator">|</span>
-            <span data-i18n="cover.date">2024年10月</span>
+            <span data-i18n="cover.date">2025年10月</span>
         </div>
     </div>
 </section>
@@ -248,7 +248,7 @@ images/
             </div>
             <div class="footer-divider"></div>
             <div class="footer-meta">
-                <span data-i18n="footer.copyright">© 2024 YECO. 保留所有权利</span>
+                <span data-i18n="footer.copyright">© 2025 YECO. 保留所有权利</span>
             </div>
         </div>
     </div>
@@ -584,7 +584,7 @@ const translations_zhCN = {
         title: "香水行业趋势月刊",
         subtitle: "解码香水消费者的灵魂",
         issue: "第01期",
-        date: "2024年10月",
+        date: "2025年10月",
         region: "中东版"
     },
 
@@ -786,8 +786,8 @@ convert input.jpg -quality 85 output.jpg
 
 ```bash
 cd /pages/reports/
-mkdir 2024-11-europe
-cd 2024-11-europe
+mkdir 2025-11-europe
+cd 2025-11-europe
 
 mkdir i18n
 mkdir images
@@ -831,7 +831,7 @@ touch i18n/ar-SA.js
         <div class="cover-content">
             <div class="cover-logo" data-i18n="logo">YECO</div>
             <div class="cover-title" data-i18n="cover.title">欧洲香水趋势报告</div>
-            <div class="cover-subtitle" data-i18n="cover.subtitle">2024年11月</div>
+            <div class="cover-subtitle" data-i18n="cover.subtitle">2025年11月</div>
         </div>
     </section>
 
@@ -843,7 +843,7 @@ touch i18n/ar-SA.js
             <div class="footer-content">
                 <div class="footer-logo">YECO</div>
                 <div class="footer-meta">
-                    <span>© 2024 YECO. 保留所有权利</span>
+                    <span>© 2025 YECO. 保留所有权利</span>
                 </div>
             </div>
         </div>
@@ -944,7 +944,7 @@ const translations_zhCN = {
     logo: "YECO",
     cover: {
         title: "欧洲香水趋势报告",
-        subtitle: "2024年11月"
+        subtitle: "2025年11月"
     }
 };
 ```
@@ -997,4 +997,4 @@ const translations_zhCN = {
 
 ## 更新日志
 
-- **2024-11-12**: 初始版本创建
+- **2025-11-12**: 初始版本创建

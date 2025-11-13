@@ -114,11 +114,11 @@ const homeEnUS = {
             title: "Latest Reports",
             reports: [
                 {
-                    date: "October 2024",
+                    date: "October 2025",
                     title: "Perfume Industry Trend Monthly - Middle East Edition",
                     subtitle: "Decoding the Soul of Perfume Consumers",
                     desc: "Based on in-depth qualitative analysis of Reddit perfume communities, revealing the market transformation of perfume bottles from containers to totemic objects",
-                    link: "/pages/reports/2024-10-middleeast/",
+                    link: "/pages/reports/2025-10-middleeast/",
                     tags: ["Design Aesthetics", "Narrative Trends", "User Dynamics", "Middle East Market"]
                 }
             ]
@@ -181,7 +181,7 @@ const homeEnUS = {
             }
         },
 
-        copyright: "© 2024 YECO. All Rights Reserved",
+        copyright: "© 2025 YECO. All Rights Reserved",
         location: "Headquarters: China"
     }
 };

@@ -72,7 +72,7 @@ yeco/
     ├── home/                  # 首页
     ├── trends/                # 趋势研究
     └── reports/               # 趋势报告
-        └── 2024-10-middleeast/
+        └── 2025-10-middleeast/
 ```
 
 ---
@@ -351,7 +351,7 @@ A: 参考 [DEPLOYMENT.md](./docs/DEPLOYMENT.md) 中的"常见问题"章节。
 
 ## 许可证
 
-© 2024 YECO. 保留所有权利。
+© 2025 YECO. 保留所有权利。
 
 本项目为专有软件，未经授权不得复制、分发或修改。
 

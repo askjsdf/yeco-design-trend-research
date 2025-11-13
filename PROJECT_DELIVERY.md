@@ -1,7 +1,7 @@
 # 🎉 YECO 网站项目交付文档
 
 **项目名称**: YECO - 世界文化交融的香水包装设计网站
-**交付日期**: 2024年11月12日
+**交付日期**: 2025年11月12日
 **项目版本**: v1.0.0
 **交付状态**: ✅ 完成
 
@@ -60,7 +60,7 @@ yeco/
 │   │       └── reports-index.json
 │   │
 │   └── reports/              # ✅ 报告内容页
-│       └── 2024-10-middleeast/  # ✅ 已迁移v2.0报告
+│       └── 2025-10-middleeast/  # ✅ 已迁移v2.0报告
 │
 ├── docs/                     # ✅ 完整文档体系
 │   ├── README.md
@@ -227,7 +227,7 @@ yeco/
 
 #### 位置
 - 从: `/v2.0/`
-- 到: `/pages/reports/2024-10-middleeast/`
+- 到: `/pages/reports/2025-10-middleeast/`
 
 ---
 
@@ -430,14 +430,14 @@ open http://localhost:8000
 # 3. 测试不同页面
 # 首页: http://localhost:8000/pages/home/
 # 趋势页: http://localhost:8000/pages/trends/
-# 报告页: http://localhost:8000/pages/reports/2024-10-middleeast/
+# 报告页: http://localhost:8000/pages/reports/2025-10-middleeast/
 ```
 
 ### 添加新报告
 
 ```bash
 # 1. 复制模板
-cp -r pages/reports/template pages/reports/2024-11-example
+cp -r pages/reports/template pages/reports/2025-11-example
 
 # 2. 编辑内容
 # - 修改 index.html
@@ -449,7 +449,7 @@ cp -r pages/reports/template pages/reports/2024-11-example
 # 添加新报告信息
 
 # 4. 测试
-# 访问 http://localhost:8000/pages/reports/2024-11-example/
+# 访问 http://localhost:8000/pages/reports/2025-11-example/
 ```
 
 ### 部署到Vercel
@@ -617,7 +617,7 @@ vercel domains add yourdomain.com
 
 ## 📝 版本历史
 
-### v1.0.0 (2024-11-12)
+### v1.0.0 (2025-11-12)
 
 **新增**
 - 完整的网站架构
@@ -647,4 +647,4 @@ vercel domains add yourdomain.com
 **下一步**: 执行测试清单，准备上线
 
 **文档版本**: 1.0
-**最后更新**: 2024-11-12
+**最后更新**: 2025-11-12

@@ -7,7 +7,7 @@ const footerI18n = {
         footer: {
             logo: 'YECO',
             tagline: '世界文化交融的香水包装设计专家',
-            copyright: '© 2024 YECO. 保留所有权利',
+            copyright: '© 2025 YECO. 保留所有权利',
             location: '总部: 中国'
         }
     },
@@ -15,7 +15,7 @@ const footerI18n = {
         footer: {
             logo: 'YECO',
             tagline: 'Global Cultural Fusion in Perfume Packaging Design',
-            copyright: '© 2024 YECO. All rights reserved',
+            copyright: '© 2025 YECO. All rights reserved',
             location: 'Headquarters: China'
         }
     },
@@ -23,7 +23,7 @@ const footerI18n = {
         footer: {
             logo: 'YECO',
             tagline: 'الاندماج الثقافي العالمي في تصميم تغليف العطور',
-            copyright: '© 2024 YECO. جميع الحقوق محفوظة',
+            copyright: '© 2025 YECO. جميع الحقوق محفوظة',
             location: 'المقر الرئيسي: الصين'
         }
     }

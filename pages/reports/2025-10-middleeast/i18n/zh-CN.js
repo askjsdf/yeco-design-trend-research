@@ -423,7 +423,7 @@ const zhCN = {
     footer: {
         logo: "YECO",
         tagline: "致力于香水行业供应链创新与卓越",
-        copyright: "© 2024 YECO. 保留所有权利",
+        copyright: "© 2025 YECO. 保留所有权利",
         source: "基于Reddit社区深度洞察",
         region: "中东版"
     }

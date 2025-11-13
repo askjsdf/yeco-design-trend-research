@@ -92,7 +92,7 @@ const trendsTranslations_enUS = {
     footer: {
         logo: "YECO",
         tagline: "Global Cultural Fusion in Perfume Packaging Design",
-        copyright: "© 2024 YECO. All rights reserved",
+        copyright: "© 2025 YECO. All rights reserved",
         location: "Headquarters: China"
     },
 

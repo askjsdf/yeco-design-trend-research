@@ -201,10 +201,10 @@
         const copyrightElement = document.querySelector('[data-i18n="footer.copyright"]');
 
         if (copyrightElement) {
-            // 如果年份不是2024，更新为当前年份
-            if (currentYear !== 2024) {
+            // 如果年份不是2025，更新为当前年份
+            if (currentYear !== 2025) {
                 const currentText = copyrightElement.textContent;
-                copyrightElement.textContent = currentText.replace('2024', currentYear);
+                copyrightElement.textContent = currentText.replace('2025', currentYear);
             }
         }
 

@@ -458,7 +458,7 @@ section {
                <div class="footer-tagline">世界文化交融的香水包装设计专家</div>
                <div class="footer-divider"></div>
                <div class="footer-meta">
-                   <span>© 2024 YECO. 保留所有权利</span>
+                   <span>© 2025 YECO. 保留所有权利</span>
                </div>
            </div>
        </div>
@@ -646,4 +646,4 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 ## 更新日志
 
-- **2024-11-12**: 初始版本创建
+- **2025-11-12**: 初始版本创建

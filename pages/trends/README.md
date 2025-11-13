@@ -53,9 +53,9 @@
 {
   "reports": [
     {
-      "id": "2024-10-middleeast",
-      "date": "2024-10",
-      "year": 2024,
+      "id": "2025-10-middleeast",
+      "date": "2025-10",
+      "year": 2025,
       "month": 10,
       "region": "middleeast",
       "title": {
@@ -70,8 +70,8 @@
         "en-US": ["Design Aesthetics", "Narrative Trends", "User Dynamics"],
         "ar-SA": ["جماليات التصميم", "اتجاهات السرد", "ديناميكيات المستخدم"]
       },
-      "coverImage": "../../pages/reports/2024-10-middleeast/images/01主视觉.png",
-      "url": "../../pages/reports/2024-10-middleeast/",
+      "coverImage": "../../pages/reports/2025-10-middleeast/images/01主视觉.png",
+      "url": "../../pages/reports/2025-10-middleeast/",
       "featured": true,
       "published": true
     }

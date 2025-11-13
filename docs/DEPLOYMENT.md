@@ -721,7 +721,7 @@ git checkout -b feature/new-report
 
 # 3. 提交更改
 git add .
-git commit -m "Add new report: 2024-11-europe"
+git commit -m "Add new report: 2025-11-europe"
 
 # 4. 推送到远程
 git push origin feature/new-report
@@ -834,7 +834,7 @@ if (CLS > 0.1) {
 
 # 更新日志
 
-## [1.2.0] - 2024-11-12
+## [1.2.0] - 2025-11-12
 ### 新增
 - 添加欧洲市场趋势报告
 - 新增法语支持
@@ -847,7 +847,7 @@ if (CLS > 0.1) {
 - 修复Safari下的语言切换问题
 - 修复移动端导航菜单错位
 
-## [1.1.0] - 2024-10-15
+## [1.1.0] - 2025-10-15
 ### 新增
 - 添加中东市场趋势报告
 - 完善阿拉伯语支持
@@ -892,4 +892,4 @@ curl -o /dev/null -s -w "%{time_total}\n" <url>  # 测试加载时间
 
 ## 更新日志
 
-- **2024-11-12**: 初始版本创建
+- **2025-11-12**: 初始版本创建
