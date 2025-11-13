@@ -48,6 +48,13 @@ class I18nManager {
     detectLanguage() {
         console.log('🔍 检测语言...');
 
+        // 调试: 显示所有 localStorage 内容
+        console.log('📦 localStorage 所有键值:');
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            console.log(`  - ${key}: ${localStorage.getItem(key)}`);
+        }
+
         // 1. 检查 localStorage
         const savedLang = localStorage.getItem('yeco_language');
         console.log('📦 localStorage.yeco_language:', savedLang);
