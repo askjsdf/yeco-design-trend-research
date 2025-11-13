@@ -521,6 +521,17 @@ function getI18nData() {
         });
     }
 
+    // 调试：输出合并后的翻译数据
+    console.log('🔍 合并后的 en-US 翻译键:', Object.keys(reportData['en-US'] || {}));
+    console.log('🔍 navigationI18n 存在?', !!window.navigationI18n);
+    console.log('🔍 footerI18n 存在?', !!window.footerI18n);
+    if (window.navigationI18n && window.navigationI18n['en-US']) {
+        console.log('🔍 导航栏 en-US 数据:', window.navigationI18n['en-US']);
+    }
+    if (reportData['en-US']) {
+        console.log('🔍 合并后完整数据示例:', JSON.stringify(reportData['en-US'], null, 2).substring(0, 500));
+    }
+
     return reportData;
 }
 
