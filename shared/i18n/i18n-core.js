@@ -46,20 +46,27 @@ class I18nManager {
        语言检测
        ========================================== */
     detectLanguage() {
+        console.log('🔍 检测语言...');
+
         // 1. 检查 localStorage
         const savedLang = localStorage.getItem('yeco_language');
+        console.log('📦 localStorage.yeco_language:', savedLang);
         if (savedLang && this.supportedLanguages.includes(savedLang)) {
+            console.log('✅ 使用保存的语言:', savedLang);
             return savedLang;
         }
 
         // 2. 检查 URL 参数
         const urlParams = new URLSearchParams(window.location.search);
         const urlLang = urlParams.get('lang');
+        console.log('🔗 URL参数 lang:', urlLang);
         if (urlLang && this.supportedLanguages.includes(urlLang)) {
+            console.log('✅ 使用URL参数语言:', urlLang);
             return urlLang;
         }
 
         // 3. 默认返回中文（不检查浏览器语言，确保所有用户默认看到中文）
+        console.log('⚙️  使用默认语言: zh-CN');
         return 'zh-CN';
     }
 
