@@ -485,7 +485,7 @@ function exportPlaceholderInfo() {
 window.exportPlaceholderInfo = exportPlaceholderInfo;
 
 // ==========================================
-// 国际化 (i18n) 功能
+// 国际化 (i18n) 功能 - 集成共享 i18n 系统
 // ==========================================
 
 // 语言数据映射 - 使用函数延迟获取,确保语言包已加载
@@ -496,9 +496,6 @@ function getI18nData() {
         'ar-SA': window.arSA || null
     };
 }
-
-// 当前语言
-let currentLanguage = 'zh-CN';
 
 // 更新页面文本内容
 function updatePageContent(lang) {
@@ -1021,101 +1018,41 @@ function updateFooter(data) {
     if (metaSpans[2]) metaSpans[2].textContent = data.region;
 }
 
-// 语言切换功能
-function switchLanguage(lang) {
-    console.log('=== switchLanguage 被调用 ===');
-    console.log('目标语言:', lang);
-    console.log('当前语言:', currentLanguage);
+// ==========================================
+// 报告页 i18n 初始化 - 使用共享 i18n 系统
+// ==========================================
+(function initReportI18n() {
+    console.log('📊 报告页面: 初始化 i18n...');
 
-    const i18nData = getI18nData();
-    console.log('可用语言包:', Object.keys(i18nData));
-    console.log('window.zhCN存在:', !!window.zhCN);
-    console.log('window.enUS存在:', !!window.enUS);
-    console.log('语言包是否存在:', !!i18nData[lang]);
+    // 等待DOM和i18n系统加载完成
+    function setupReportLanguage() {
+        if (!window.i18n) {
+            console.warn('⚠️ 共享 i18n 系统未找到，延迟重试...');
+            setTimeout(setupReportLanguage, 100);
+            return;
+        }
 
-    if (!i18nData[lang]) {
-        console.error('语言包未找到:', lang);
-        console.error('window.zhCN:', window.zhCN);
-        console.error('window.enUS:', window.enUS);
-        return;
+        console.log('✅ 检测到共享 i18n 系统');
+
+        // 监听全局语言切换事件
+        window.i18n.on('languageChanged', (data) => {
+            const lang = data.to;
+            console.log('📊 报告页面: 收到语言切换事件:', lang);
+            updatePageContent(lang);
+        });
+
+        // 使用 i18n 系统的当前语言初始化页面
+        const currentLang = window.i18n.currentLang || 'zh-CN';
+        console.log('📊 报告页面: 初始化语言为:', currentLang);
+        updatePageContent(currentLang);
+
+        console.log('✅ 报告页面 i18n 初始化完成');
     }
 
-    // 更新当前语言
-    currentLanguage = lang;
-    localStorage.setItem('language', lang);
-    console.log('已保存语言到localStorage:', localStorage.getItem('language'));
-
-    // 设置HTML lang属性（用于RTL支持）
-    const langCode = lang === 'ar-SA' ? 'ar' : lang === 'zh-CN' ? 'zh' : 'en';
-    document.documentElement.setAttribute('lang', langCode);
-    console.log('设置HTML lang属性为:', langCode);
-
-    // 更新页面内容
-    console.log('开始更新页面内容...');
-    updatePageContent(lang);
-
-    // 更新切换器状态
-    document.querySelectorAll('.lang-tab').forEach(tab => {
-        tab.classList.remove('active');
-        if (tab.dataset.lang === lang) {
-            tab.classList.add('active');
-            console.log('激活tab:', lang);
-        }
-    });
-
-    console.log('=== 语言切换完成 ===');
-}
-
-// 导出语言切换函数供外部使用
-window.switchLanguage = switchLanguage;
-
-// 初始化语言切换器
-(function initI18n() {
     // 等待DOM加载完成
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', setupLanguageSwitcher);
+        document.addEventListener('DOMContentLoaded', setupReportLanguage);
     } else {
-        setupLanguageSwitcher();
-    }
-
-    function setupLanguageSwitcher() {
-        console.log('📝 报告页面: 设置语言切换监听...');
-
-        // 监听i18n系统的语言切换事件
-        if (window.i18n) {
-            window.i18n.on('languageChanged', (data) => {
-                const lang = data.to;
-                console.log('📝 报告页面: 收到语言切换事件:', lang);
-                currentLanguage = lang;
-                updatePageContent(lang);
-            });
-
-            // 使用i18n系统的当前语言初始化
-            setTimeout(() => {
-                const initialLang = window.i18n.currentLang || 'zh-CN';
-                console.log('📝 报告页面: 初始化语言为:', initialLang);
-                currentLanguage = initialLang;
-                updatePageContent(initialLang);
-            }, 200);
-        } else {
-            console.warn('⚠️ i18n系统未找到，使用默认语言');
-            // 如果i18n系统未加载，使用localStorage或默认语言
-            setTimeout(() => {
-                const savedLang = localStorage.getItem('language') || 'zh-CN';
-                console.log('📝 报告页面: 使用保存的语言:', savedLang);
-                currentLanguage = savedLang;
-                updatePageContent(savedLang);
-            }, 100);
-        }
-
-        // 保留对老式 .lang-tab 按钮的支持（如果页面上有的话）
-        document.querySelectorAll('.lang-tab').forEach(tab => {
-            tab.addEventListener('click', function(e) {
-                e.preventDefault();
-                const lang = this.dataset.lang;
-                console.log('📝 报告页面: 通过tab切换语言到:', lang);
-                switchLanguage(lang);
-            });
-        });
+        setupReportLanguage();
     }
 })();
