@@ -92,7 +92,7 @@ const zhCN = {
         sectionSubtitle: "渴望的形态与美学的战场",
 
         sevenSins: {
-            title: "设计的【七宗罪】】",
+            title: "设计的【七宗罪】",
             badge: "消费者排斥",
             placeholder: "【廉价感】案例",
             placeholderSize: "600x800px",
