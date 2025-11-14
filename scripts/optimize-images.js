@@ -205,7 +205,8 @@ async function processImageDirectory(imagesDir) {
     await ensureDir(outputDir);
 
     // 查找该目录下的所有图片（不包括 optimized 子目录）
-    const pattern = path.join(imagesDir, `*.{${CONFIG.inputFormats.join(',')}}`);
+    // 使用正斜杠以确保 glob 在 Windows 上正常工作
+    const pattern = path.join(imagesDir, `*.{${CONFIG.inputFormats.join(',')}}`).replace(/\\/g, '/');
     const imageFiles = await glob(pattern, { nocase: true });
 
     if (imageFiles.length === 0) {
